@@ -3,5 +3,6 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
+RUN apk add --no-cache dos2unix && dos2unix run_tests.sh
 RUN chmod +x run_tests.sh
 CMD ["sh"]
